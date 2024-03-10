@@ -1,0 +1,137 @@
+{%extends "base.html"%}
+
+{%block title%}
+User
+{%endblock%}
+
+
+
+{%block content%}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+
+
+
+
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+
+
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" onclick="view()">View Password</a>
+
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" onclick="create()">Store Crendentials</a>
+
+    <form   method="POST" action="logout">
+  <input type="submit" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" name="logout" value="logout">
+</form>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="view()">View Password</a>
+
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="create()">Store Crendentials</a>
+
+    <form   method="POST" action="logout">
+  <input type="submit" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" name="logout" value="logout">
+</form>
+  </div>
+</div>
+
+
+
+
+
+
+<div id="password_storage" >
+<h3>Save new login credentials </h3>
+ <form method="POST" action="/user_home">
+  <input type="text" name="website" placeholder="examples.com">
+  <br>
+  <input type="email" name="email" placeholder="example@your_mail.com">
+  <br>
+  <input type="password" name="pass_one" placeholder="password">
+  <br>
+  <input type="submit" placeholder="Logins">
+</form>
+<br>
+<br>
+  </div>
+
+
+
+
+<div id="show_password" hidden>
+
+
+  <table id="new_table">
+    <thead>
+    <tr>
+      <th>Website</th>
+      <th>Email/User name</th>
+      
+      <th>Edit Password</th>
+      <th>save</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    {%for x in values%}
+    <tr>
+      <td>{{x.website}}</td>
+      <td>{{x.web_email}}</td>
+      
+      <form action="delete_pass" method="POST">
+        <td><input type="input" name="del" value="{{x.web_pass}}"></td>
+        <td><button>save</button></td>
+        <td>        <input type="submit" value="delete">      </td>
+
+      </form>
+    </tr>
+        {%endfor%}
+  </table>
+</div>
+
+
+
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+
+
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function view(){
+document.getElementById('show_password').hidden = false
+document.getElementById('password_storage').hidden = true
+}
+
+function create(){
+document.getElementById('show_password').hidden = true
+document.getElementById('password_storage').hidden = false
+
+}
+
+
+
+
+</script>
+
+{%endblock%}
