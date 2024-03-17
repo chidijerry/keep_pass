@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{%block title%}
+
+
+<title>Keep Pass</title>
+
+
+{%endblock%}
+
+
+{%block content%}
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home.css')}}">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Keep Pass</h1>
+  <p class="w3-xlarge">keep password save always</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><a
+    href="/login">Login</a></button>
+</header>
+
+
+<!-- first  Grid or about us -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>About us </h1>
+      <h5 class="w3-padding-32">
+        Access your password from anywhere in the world , generate new password
+        you can keep track of. Protect you from hackers stealing your credentials.
+        24/7 customer support.
+      </h5>
+
+      <p class="w3-text-grey">We are a password storage company , we generate and keep track of user
+      password.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- second grid for faq -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Frequently Asked Questions</h1>
+
+
+      <h5 class="w3-padding-32">
+
+
+              <div class="faq">
+                <a href="#">Can I retrieve my login credentials</a>
+                <br>
+                <a href="#">How do i generate new password</a>
+                <br>
+                <a href="#">How do i enable two factor authentication</a>
+              </div>
+            </div>
+          </h5>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+
+{%endblock%}
